@@ -1,0 +1,41 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ActivityModel {
+  dayGoal: Float!
+  endDate: String!
+
+  """id"""
+  id: ID!
+  name: String!
+  startDate: String!
+  type: ActivityType!
+  user: User!
+}
+
+enum ActivityType {
+  """Types where you can mark as done"""
+  BOOL
+  NUMERIC
+}
+
+type Mutation {
+  createUser(email: String!, username: String!): User!
+  removeActivity(id: Int!): ActivityModel!
+}
+
+type Query {
+  activities: [ActivityModel!]!
+  activity(id: Int!): ActivityModel!
+  user(email: String, id: Int, username: String): User
+}
+
+type User {
+  activities: [ActivityModel!]!
+  email: String!
+
+  """id"""
+  id: ID!
+  username: String!
+}
